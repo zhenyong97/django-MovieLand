@@ -1,0 +1,16 @@
+.vscode
+db.sqlite3
+*.log
+__pycache__
+local_settings.py
+media_root*
+static_root*
+node_modules*
+**/static/react
+upload_root*
+**/static/image/.DS_Store
+**/static/.DS_Store
+.idea/
+**/static/scss/
+**/static/.sass-cache
+.venv
