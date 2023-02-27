@@ -27,7 +27,10 @@ module.exports = {
             use: {
                 loader: 'babel-loader',
                 options: {
-                  presets: ['@babel/preset-env']
+                  // presets: ['@babel/preset-env'],
+                  cacheDirectory: true,// 开启babel编译缓存
+                  cacheCompression: false, // 缓存文件不要压缩
+                  plugins: ['@babel/plugin-transform-runtime']//减少代码体积
                 }
             }
           }, {

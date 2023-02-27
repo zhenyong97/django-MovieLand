@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MoveiLand</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'movie_ico.ico' %}">
     {% block custom_css %}
     {% endblock %}
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
@@ -17,5 +18,7 @@
     <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
     <script src="{% static 'react/moviesite/app.bundle.js' %}"></script>
+    {% block custom_js %}
+    {% endblock %}
 </body>
 </html>
