@@ -37,9 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'django_extensions',
+
     'movieland',
     'movieland.apps.accounts',
     'movieland.apps.movie',
+    'movieland.apps.config',
     'movieland.web'
 
 ]
