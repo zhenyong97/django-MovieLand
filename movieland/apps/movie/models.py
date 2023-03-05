@@ -60,17 +60,17 @@ class Artist(models.Model):
     artist_id =  models.IntegerField(primary_key=True,)
     movies = models.ManyToManyField(Programme)
 
-    def __repr__(self):
+    def __str__(self):
         return '<Aritst - %s>' % self.name
 
 
 class Country(models.Model):
     """
-    所属地区， 中国， 日本 ， 美国...
+    所属地区， 中国， 日本, 美国...
     """
     country_name = models.CharField(max_length=30, blank=True, null=True)
     movies = models.ManyToManyField(Programme)
 
-    def __repr__(self):
+    def __str__(self):
         return '<Country - %s>' % self.name
 
