@@ -1,5 +1,5 @@
 from pyquery import PyQuery as pq
-
+import requests
 
 def test_list_parser(filename='list_page.html'):
     with open(filename, 'r', encoding='utf-8') as f:
@@ -7,17 +7,23 @@ def test_list_parser(filename='list_page.html'):
     doc = pq(content)
     item_list = doc('li.mb')  # 匹配所有class 属性中带有mb的li标签
     for tag in item_list.items():
-        movie_url = 'http://www.yhdm6.com' + tag('a').attr('href')
+        movie_url = 'http://yhdm81.com/' + tag('a').attr('href')
         movie_name = tag('a').attr('title')
         movie_cover = tag('div.img > img').attr('src')
         print(movie_url, movie_name, movie_cover)
 
 
-def test_detail_parser(filename='detail_page.html'):
-    with open(filename, 'r', encoding='utf-8') as f:
-        content = f.read()
+def test_detail_parser(url=None, filename='detail_page.html'):
+    if url:
+        res = requests.get(url, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36',
+        'Content-Type': 'text/heml;charset=utf-8'})
+        res.encoding = None
+        content = res.text
+    else:
+        with open(filename, 'r', encoding='utf-8') as f:
+            content = f.read()
     doc = pq(content)
-    artists = doc('div.info > dl > dd:nth-child(2)').text()[3:].split(' ')
+    artists = doc('div.info > dl > dd:nth-child(2)').text().split('：')
     print(artists)
     categorys = doc('div.info > dl > dd:nth-child(4) > a').text().split(' ')
     print(categorys)
@@ -43,5 +49,12 @@ save_data(data_info) 入库
 
 
 if __name__ == "__main__":
-    test_list_parser()
-    test_detail_parser()
+    # test_list_parser()
+    """
+        动漫: http://yhdm81.com/acg/74982/
+        综艺: http://yhdm81.com/zongyi/56411/
+        电视剧: http://yhdm81.com/tv/79711/
+        电影: http://yhdm81.com/mov/75189/
+    
+    """
+    test_detail_parser(url='http://yhdm81.com//tv/31929/')

@@ -27,5 +27,5 @@ def get_detail_pate(url):
 
 
 if __name__ == "__main__":
-    get_list_page(r"http://129.204.87.3:8877/getsortdata_all_z.php?action=mov&page=1&year=0&area=all&class=0&dect=&id=")
-    get_detail_pate(r"http://www.yhdm6.com/mov/15514/")
+    # get_list_page(r"http://106.52.72.239:11333/getsortdata_all_z.php?action=acg&page=1&year=0&area=all&class=0&dect=&id=")
+    get_detail_pate(r"http://yhdm81.com/tv/80035/")

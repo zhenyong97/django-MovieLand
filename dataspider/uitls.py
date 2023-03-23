@@ -31,7 +31,8 @@ for tag in item_list.items():
 
 
 def parse_detail(url):
-    rsp = requests.get(url)
+    rsp = requests.get(url, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36',
+    'Content-Type': 'text/heml;charset=utf-8'})
     rsp.encoding = 'utf-8'
     content = rsp.text
     def area_publishtime(content):
@@ -65,5 +66,5 @@ def parse_detail(url):
 
 if __name__ == '__main__':
     print('hello test')
-    print(parse_detail('http://yhdm83.com/tv/67365/'))
+    print(parse_detail('http://yhdm84.com/tv/67365/'))
 
